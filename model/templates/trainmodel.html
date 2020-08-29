@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Last Train</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+  </style>
+</head>
+<body>
+
+  <div class="topnav">
+  <a href="#news"><H3 style="color:blue;">Google News<H3> </a>
+  <a href="/">News</a>
+  <a class="active" href="#news">Train Model</a>
+</div>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Train Model</h1>
+    {%if status=="0"%}
+     <button type="button" class="btn btn-danger">Train Model Again</button> 
+    <p>Before traning model again make shore that you have updated dataset </p>
+    {%else%}
+    <img src="{{url_for('static',filename='loding.gif')}}",width="200" height="200"/>
+    {%endif%}
+  </div>
+</div>
+<br>
+<br>
+
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Total smaple</div>
+        <div class="panel-footer">{{length}}</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">Total Positive smaples</div>
+              <div class="panel-footer">{{pos_sample}}</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-danger">
+        <div class="panel-heading">Total Negative smaple</div>
+        <div class="panel-footer">{{neg_smaple}}</div>
+      </div>
+    </div>
+</div><br>
+
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Train Score</div>
+        <div class="panel-footer">1.0</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">Test Score</div>
+        <div class="panel-footer">1.0</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">Total Score</div>
+        <div class="panel-footer">1.0</div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright</p>  
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+   
+  </form>
+</footer>
+
+</body>
+</html>
