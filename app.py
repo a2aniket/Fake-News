@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Aug 29 09:28:13 2020
-
-@author: sai
-"""
-
-
 from  flask import Flask,render_template
 import pandas as pd
 from time import time
@@ -14,7 +6,7 @@ app=Flask(__name__)
 
 @app.route("/")
 def home():
-    news=pd.read_csv("../data/train.csv")
+    news=pd.read_csv("data/train.csv")
     title=news["title"]
     label=news["text"]
     author=news["author"]
@@ -24,7 +16,7 @@ def home():
 @app.route("/model")
 def train_model():
     status="1"
-    df=pd.read_csv("../data/train.csv")
+    df=pd.read_csv("data/train.csv")
     length=df.shape
     pos_sample=df[df["label"]==1]
     neg_smaple=df[df["label"]==0]
