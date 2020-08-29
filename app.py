@@ -15,7 +15,7 @@ def home():
 
 @app.route("/model")
 def train_model():
-    status="1"
+    status="0"
     df=pd.read_csv("data/train.csv")
     length=df.shape
     pos_sample=df[df["label"]==1]
@@ -23,7 +23,6 @@ def train_model():
     train_score=0
     test_score=0
     total_score=0
-    status=input("Enter Sta")
     return render_template("trainmodel.html",length=length[0],pos_sample=len(pos_sample),neg_smaple=len(neg_smaple),status=status)
 
 @app.route("/p", methods=["POST"])
