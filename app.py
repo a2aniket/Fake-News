@@ -29,4 +29,6 @@ def train_model():
 def predict():
     return render_template("predict.html")
 
-app.run(debug=True)
+
+if __name__ == '__main__':
+    flaskapp.run(debug=True)
