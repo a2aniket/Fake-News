@@ -2,6 +2,11 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
 .alert {
   padding: 20px;
@@ -23,56 +28,45 @@
 .closebtn:hover {
   color: black;
 }
+
+.danger {
+  background-color: #ffdddd;
+  border-left: 6px solid #f44336;
+}
+
+ footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+
+.success {
+  background-color: #ddffdd;
+  border-left: 6px solid #4CAF50;
+}
 </style>
 </head>
 <body>
 
-<h2>Alert Messages</h2>
-
-<p>Click on the "x" symbol to close the alert message.</p>
-<div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+{%if prediction[0]==1%}
+  <div class="danger">
+    <p><H1><strong>{{news}}<H1></p>
+  </div>
+  {%else%}
+  <div class="success">
+    <p><H1><strong>{{news}}<H1></p>
 </div>
+{%endif%}
+
+
+<footer class="container-fluid text-center">
+  <p>Help us to improve performance</p>  
+  <form action="/comment" method="POST" class="form-inline">Add Comment:
+    <input type="" name="comment" class="form-control" size="50" placeholder="Comment">
+    <input type="submit" name="">
+  </form>
+</footer>
 
 </body>
 </html>
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
-}
-
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
-}
-</style>
-</head>
-<body>
-
-<h2>Alert Messages</h2>
-
-<p>Click on the "x" symbol to close the alert message.</p>
-<div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
-</div>
-
-</body>
-</html>
