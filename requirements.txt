@@ -12,3 +12,4 @@ pandas>=0.19
 mysqlclient==2.0.1
 Flask-RESTful==0.3.8
 Flask-SQLAlchemy==2.4.3
+pickle==4.0
