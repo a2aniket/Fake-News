@@ -287,8 +287,9 @@ window.onclick = function(event) {
 {%for comm in comment%}
 <div class="card">
   <div class="container">
-    <h4><b>{{comm.comment}}</b></h4> 
+    <h4><b>{{comm.comm}}</b></h4> 
     <p>{{comm.date}}</p> 
+    <br><br>
   </div>
 </div>
 {%endfor%}

@@ -43,6 +43,7 @@ def train_model():
     y=messages['label']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
     count_df = pd.DataFrame(X_train, columns=cv.get_feature_names())
+    count_df=count_df.iloc[:9000,:]
     count_df.to_csv("data/data.csv")
     classifier=MultinomialNB()
     classifier.fit(X_train, y_train)

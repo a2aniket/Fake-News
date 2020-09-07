@@ -74,8 +74,8 @@ def comment():
     if request.method=="POST":
         comment=request.form.get("comment")
         print(comment)
-        comment=Comment(comm=comment,date=datetime.now())
-        db.session.add(comment)
+        comments=Comment(comm=comment,date=datetime.now())
+        db.session.add(comments)
         db.session.commit()
     return home()
 
@@ -89,7 +89,7 @@ def login():
             session=True
             return train_model(session)
         else:
-            session=True
+            session=False
             return train_model(session)
 
 @app.route('/adduser',methods=["POST","GET"])
